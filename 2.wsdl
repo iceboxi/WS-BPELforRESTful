@@ -1,0 +1,25 @@
+<wsdl:description 
+	xmlns:wsdl="http://www.w3.org/ns/wsdl" 
+	xmlns:odex="http://www.apache.org/ode/type/extension/http"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	xmlns:tns="http://example" >
+    <wsdl:types />
+    <wsdl:interface />
+    <wsdl:message name="NoPartMessage" />
+    <wsdl:portType name="testPortType">
+		<wsdl:operation name="getAll">
+			<wsdl:input message="tns:NoPartMessage" name="inputRequest" />
+			<wsdl:output message="tns:NoPartMessage" name="outputRequest" />
+		</wsdl:operation>
+	</wsdl:portType>
+    <wsdl:binding name="binding" type="testPortType">
+    	<wsdl:operation name="GET">
+    		<odex:binding verb="GET" />
+    	</wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="testService">
+    	<wsdl:port name="testPort" binding="testPortType">
+    		<http:address location="http://www.google.com" />
+    	</wsdl:port>
+    </wsdl:service>
+</wsdl:description>
